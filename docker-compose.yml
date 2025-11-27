@@ -57,7 +57,7 @@ services:
       - open-webui:/app/backend/data
     environment:
       - OPENAI_API_BASE_URLS=http://litellm:4000/v1
-      - OPENAI_API_KEYS=sk-1234  # Replace with your actual LiteLLM API key from .env
+      - OPENAI_API_KEYS=sk-Virtual-key  # Replace with your actual LiteLLM Virtual key from http://localhost:4000/ui create a new key
       - WEBUI_SECRET_KEY=
     depends_on:
       - litellm
