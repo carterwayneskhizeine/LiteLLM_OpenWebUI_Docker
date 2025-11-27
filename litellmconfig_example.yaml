@@ -11,6 +11,12 @@ litellm_settings:
   telemetry: False
 
 model_list:
+  - model_name: context7-mcp
+    litellm_params:
+      model: openai/mcp
+      api_base: https://context7.com/api/v1
+      api_key: os.environ/CONTEXT7_API_KEY
+
   - model_name: R/grok-4-1-fast:free
     litellm_params:
       model: openrouter/x-ai/grok-4.1-fast:free
@@ -34,7 +40,43 @@ model_list:
       supports_tool_choice: true
       supports_reasoning: true
       supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "temperature", "top_p", "seed", "logprobs", "top_logprobs", "tools", "tool_choice"]
-
+      
+  - model_name: R/openrouter/bert-nebulon-alpha
+    litellm_params:
+      model: openrouter/openrouter/bert-nebulon-alpha
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        include_reasoning: true
+    model_info:
+      mode: chat
+      input_cost_per_token: 0
+      output_cost_per_token: 0
+      cache_read_input_token_cost: 0
+      max_tokens: 256000
+      max_input_tokens: 256000
+      max_output_tokens: 256000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "temperature", "top_p", "seed", "logprobs", "top_logprobs", "tools", "tool_choice"]
+      
+  - model_name: R/mistralai/codestral-2508
+    litellm_params:
+      model: openrouter/mistralai/codestral-2508
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.0000003
+      output_cost_per_token: 0.0000009
+      cache_read_input_token_cost: 0.0000003
+      max_tokens: 256000
+      max_input_tokens: 256000
+      max_output_tokens: 256000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed", "tools", "tool_choice"]
+      
   - model_name: R/anthropic/claude-opus-4.5
     litellm_params:
       model: openrouter/anthropic/claude-opus-4.5
@@ -2116,9 +2158,9 @@ model_list:
       supports_reasoning: true
       supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "tools", "tool_choice", "frequency_penalty"]
       
-  - model_name: R/tngtech/deepseek-r1t-chimera:free
+  - model_name: R/tngtech/tng-r1t-chimera:free
     litellm_params:
-      model: openrouter/tngtech/deepseek-r1t-chimera:free
+      model: openrouter/tngtech/tng-r1t-chimera:free
       api_key: os.environ/OPENROUTER_API_KEY
     model_info:
       mode: chat
@@ -2131,7 +2173,7 @@ model_list:
       supports_function_calling: true
       supports_tool_choice: true
       supports_reasoning: true
-      supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed"]
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed", "tools", "tool_choice", "structured_outputs", "response_format"]
       
   - model_name: R/meta-llama/llama-4-maverick
     litellm_params:
@@ -2150,9 +2192,9 @@ model_list:
       supports_vision: true
       supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed"]
       
-  - model_name: R/mistralai/mistral-nemo:free
+  - model_name: R/mistralai/mistral-7b:free
     litellm_params:
-      model: openrouter/mistralai/mistral-nemo:free
+      model: openrouter/mistralai/mistral-7b-instruct:free
       api_key: os.environ/OPENROUTER_API_KEY
     model_info:
       mode: chat
@@ -2164,11 +2206,11 @@ model_list:
       max_output_tokens: 128000
       supports_function_calling: true
       supports_tool_choice: true
-      supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed"]
+      supported_openai_params: ["tools", "tool_choice", "max_tokens", "temperature", "top_p", "response_format", "stop", "frequency_penalty", "presence_penalty", "seed"]
       
-  - model_name: R/mistralai/mistral-small-3.2:free
+  - model_name: R/mistralai/mistral-small-3.1-24b:free
     litellm_params:
-      model: openrouter/mistralai/mistral-small-3.2-24b-instruct:free
+      model: openrouter/mistralai/mistral-small-3.1-24b-instruct:free
       api_key: os.environ/OPENROUTER_API_KEY
     model_info:
       mode: chat
@@ -2180,7 +2222,7 @@ model_list:
       max_output_tokens: 131100
       supports_function_calling: true
       supports_tool_choice: true
-      supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed"]
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "tools", "tool_choice"]
 
   - model_name: R/meituan/longcat-flash-chat:free
     litellm_params:
