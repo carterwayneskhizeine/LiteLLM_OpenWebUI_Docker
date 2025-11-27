@@ -1,6 +1,6 @@
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:main-v1.80.5.dev3
+    image: ghcr.io/berriai/litellm:main-latest
     #########################################
     ## Uncomment these lines to start proxy with a config.yaml file ##
     # volumes:
