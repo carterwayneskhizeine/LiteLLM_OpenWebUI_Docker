@@ -22,7 +22,8 @@ model_list:
       model: openrouter/x-ai/grok-4.1-fast:free
       api_key: os.environ/OPENROUTER_API_KEY
       extra_body:
-        include_reasoning: true
+        reasoning: 
+          effort: high
     model_info:
       mode: chat
       input_cost_per_token: 0
@@ -40,6 +41,182 @@ model_list:
       supports_tool_choice: true
       supports_reasoning: true
       supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "temperature", "top_p", "seed", "logprobs", "top_logprobs", "tools", "tool_choice"]
+      
+  - model_name: R/claude-sonnet-4.5-high
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4.5
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      cache_read_input_token_cost: 0.0000003
+      input_cost_per_token_above_200k_tokens: 0.000006
+      output_cost_per_token_above_200k_tokens: 0.0000225
+      cache_read_input_token_cost_above_200k_tokens: 0.0000006
+      max_tokens: 1000000
+      max_input_tokens: 1000000
+      max_output_tokens: 64000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice", "top_k"]
+      
+  - model_name: R/claude-sonnet-4.5-medium
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4.5
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: medium
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      cache_read_input_token_cost: 0.0000003
+      input_cost_per_token_above_200k_tokens: 0.000006
+      output_cost_per_token_above_200k_tokens: 0.0000225
+      cache_read_input_token_cost_above_200k_tokens: 0.0000006
+      max_tokens: 1000000
+      max_input_tokens: 1000000
+      max_output_tokens: 64000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice", "top_k"]
+      
+  - model_name: R/claude-sonnet-4.5-low
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4.5
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: low
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      cache_read_input_token_cost: 0.0000003
+      input_cost_per_token_above_200k_tokens: 0.000006
+      output_cost_per_token_above_200k_tokens: 0.0000225
+      cache_read_input_token_cost_above_200k_tokens: 0.0000006
+      max_tokens: 1000000
+      max_input_tokens: 1000000
+      max_output_tokens: 64000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice", "top_k"]
+      
+  - model_name: R/claude-sonnet-4.5-minimal
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4.5
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: minimal
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      cache_read_input_token_cost: 0.0000003
+      input_cost_per_token_above_200k_tokens: 0.000006
+      output_cost_per_token_above_200k_tokens: 0.0000225
+      cache_read_input_token_cost_above_200k_tokens: 0.0000006
+      max_tokens: 1000000
+      max_input_tokens: 1000000
+      max_output_tokens: 64000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice", "top_k"]
+      
+  - model_name: R/openai/gpt-5.1-high
+    litellm_params:
+      model: openrouter/openai/gpt-5.1
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
+      
+  - model_name: R/openai/gpt-5.1-medium
+    litellm_params:
+      model: openrouter/openai/gpt-5.1
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: medium
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
+      
+  - model_name: R/openai/gpt-5.1-low
+    litellm_params:
+      model: openrouter/openai/gpt-5.1
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: low
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
+      
+  - model_name: R/openai/gpt-5.1-minimal
+    litellm_params:
+      model: openrouter/openai/gpt-5.1
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: minimal
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
       
   - model_name: R/openrouter/bert-nebulon-alpha
     litellm_params:
@@ -61,6 +238,25 @@ model_list:
       supports_reasoning: true
       supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "temperature", "top_p", "seed", "logprobs", "top_logprobs", "tools", "tool_choice"]
       
+  - model_name: R/openai/gpt-oss-120b
+    litellm_params:
+      model: openrouter/openai/gpt-oss-120b
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        include_reasoning: true
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000004
+      output_cost_per_token: 0.0000002
+      cache_read_input_token_cost: 0.00000004
+      max_tokens: 131100
+      max_input_tokens: 131100
+      max_output_tokens: 32800
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed", "response_format", "structured_outputs", "tools", "tool_choice"]
+      
   - model_name: R/mistralai/codestral-2508
     litellm_params:
       model: openrouter/mistralai/codestral-2508
@@ -81,6 +277,9 @@ model_list:
     litellm_params:
       model: openrouter/anthropic/claude-opus-4.5
       api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
     model_info:
       mode: chat
       input_cost_per_token: 0.000005
@@ -114,103 +313,6 @@ model_list:
       supports_tool_choice: true
       supports_reasoning: true
       supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "temperature", "top_p", "seed", "stop", "tools", "tool_choice"]
-      
-  - model_name: replicate/google/gemini-3-pro
-    litellm_params:
-      model: replicate/google/gemini-3-pro
-      api_key: os.environ/REPLICATE_API_KEY
-    model_info:
-      mode: chat
-      input_cost_per_token: 0.000002
-      output_cost_per_token: 0.000012
-      cache_read_input_token_cost: 0.0000002
-      input_cost_per_token_above_200k_tokens: 0.000004
-      output_cost_per_token_above_200k_tokens: 0.000018
-      cache_read_input_token_cost_above_200k_tokens: 0.0000004
-      max_tokens: 1050000
-      max_input_tokens: 1050000
-      max_output_tokens: 65500
-      supports_vision: true
-      supports_function_calling: true
-      supports_tool_choice: true
-      supports_reasoning: true
-      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "temperature", "top_p", "seed", "stop", "tools", "tool_choice"]
-      
-  - model_name: replicate/anthropic/claude-4.5-sonnet
-    litellm_params:
-      model: replicate/anthropic/claude-4.5-sonnet
-      api_key: os.environ/REPLICATE_API_KEY
-    model_info:
-      mode: chat
-      input_cost_per_token: 0.000003
-      output_cost_per_token: 0.000015
-      cache_read_input_token_cost: 0.0000003
-      input_cost_per_token_above_200k_tokens: 0.000006
-      output_cost_per_token_above_200k_tokens: 0.0000225
-      cache_read_input_token_cost_above_200k_tokens: 0.0000006
-      max_tokens: 1000000
-      max_input_tokens: 1000000
-      max_output_tokens: 64000
-      supports_vision: true
-      supports_function_calling: true
-      supports_tool_choice: true
-      supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice", "top_k"]
-      
-  - model_name: replicate/anthropic/claude-4.5-haiku
-    litellm_params:
-      model: replicate/anthropic/claude-4.5-haiku
-      api_key: os.environ/REPLICATE_API_KEY
-    model_info:
-      mode: chat
-      input_cost_per_token: 0.000001
-      output_cost_per_token: 0.000005
-      cache_read_input_token_cost: 0.0000001
-      max_tokens: 200000
-      max_input_tokens: 200000
-      max_output_tokens: 64000
-      supports_vision: true
-      supports_function_calling: true
-      supports_tool_choice: true
-      supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice", "top_k"]
-      
-  - model_name: replicate/openai/gpt-5.1
-    litellm_params:
-      model: replicate/openai/gpt-5.1
-      api_key: os.environ/REPLICATE_API_KEY
-    model_info:
-      mode: chat
-      input_cost_per_token: 0.00000125
-      output_cost_per_token: 0.00001
-      cache_read_input_token_cost: 0.000000125
-      max_tokens: 400000
-      max_input_tokens: 400000
-      max_output_tokens: 128000
-      supports_vision: true
-      supports_function_calling: true
-      supports_tool_choice: true
-      supports_reasoning: true
-      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
-      
-  - model_name: replicate/xai/grok-4
-    litellm_params:
-      model: replicate/xai/grok-4
-      api_key: os.environ/REPLICATE_API_KEY
-    model_info:
-      mode: chat
-      input_cost_per_token: 0.000003
-      input_cost_per_token_above_128k_tokens: 0.000006
-      output_cost_per_token: 0.000015
-      output_cost_per_token_above_128k_tokens: 0.00003
-      cache_read_input_token_cost: 0.00000075
-      max_tokens: 256000
-      max_input_tokens: 256000
-      max_output_tokens: 256000
-      rpm: 480
-      tpm: 2000000
-      supports_vision: true
-      supports_function_calling: true
-      supports_tool_choice: true
-      supported_openai_params: ["structured_outputs", "max_tokens", "temperature", "top_p", "seed", "logprobs", "top_logprobs", "response_format", "tools", "tool_choice"]
 
   - model_name: D/deepseek-chat-official
     litellm_params:
@@ -241,6 +343,257 @@ model_list:
       supports_function_calling: false
       supports_reasoning: true
       supported_openai_params:  ["max_tokens","structured_outputs"]
+      
+  - model_name: aliyun/qwen3-max-preview-thinking
+    litellm_params:
+      model: openai/qwen3-max-preview
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+      extra_body:
+        enable_thinking: true
+        thinking_budget: 81920
+        enable_search: true
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000141
+      cache_read_input_token_cost: 0.00000141
+      output_cost_per_token: 0.00000564
+      max_tokens: 262144
+      max_input_tokens: 258048
+      max_output_tokens: 65536
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "top_k", "frequency_penalty", "tools",  "tool_choice"]
+      
+  - model_name: aliyun/qwen3-max-preview
+    litellm_params:
+      model: openai/qwen3-max-preview
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+      extra_body:
+        enable_search: true
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000141
+      cache_read_input_token_cost: 0.00000141
+      output_cost_per_token: 0.00000564
+      max_tokens: 262144
+      max_input_tokens: 258048
+      max_output_tokens: 65536
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "top_k", "frequency_penalty", "tools",  "tool_choice"]
+      
+  - model_name: aliyun/qwen3-vl-plus-thinking
+    litellm_params:
+      model: openai/qwen3-vl-plus-2025-09-23
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+      extra_body:
+        enable_thinking: true
+        thinking_budget: 81920
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000000141
+      cache_read_input_token_cost: 0.000000141
+      output_cost_per_token: 0.00000141
+      max_tokens: 262144
+      max_input_tokens: 258048
+      max_output_tokens: 65536
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supports_vision: true
+      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "top_k", "frequency_penalty", "tools",  "tool_choice"]
+      
+  - model_name: aliyun/qwen3-vl-plus
+    litellm_params:
+      model: openai/qwen3-vl-plus-2025-09-23
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000000141
+      cache_read_input_token_cost: 0.000000141
+      output_cost_per_token: 0.00000141
+      max_tokens: 262144
+      max_input_tokens: 258048
+      max_output_tokens: 65536
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_vision: true
+      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "top_k", "frequency_penalty", "tools",  "tool_choice"]
+      
+  - model_name: aliyun/qwen3-omni-flash
+    litellm_params:
+      model: openai/qwen3-omni-flash-2025-09-15
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.0000002538
+      cache_read_input_token_cost: 0.0000002538
+      output_cost_per_token: 0.0000009729
+      max_tokens: 48000
+      max_input_tokens: 48000
+      max_output_tokens: 16000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_vision: true
+      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "top_k", "frequency_penalty", "tools",  "tool_choice"]
+      
+  - model_name: aliyun/qwen3-coder-plus
+    litellm_params:
+      model: openai/qwen3-coder-plus-2025-09-23
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000000564
+      cache_read_input_token_cost: 0.000000564
+      output_cost_per_token: 0.000002256
+      max_tokens: 1000000
+      max_input_tokens: 1000000
+      max_output_tokens: 64000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "top_k", "frequency_penalty", "tools",  "tool_choice"]
+      
+  - model_name: aliyun/qwen3-coder-flash
+    litellm_params:
+      model: openai/qwen3-coder-flash-2025-07-28
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000000141
+      cache_read_input_token_cost: 0.000000141
+      output_cost_per_token: 0.000000564
+      max_tokens: 997000
+      max_input_tokens: 997000
+      max_output_tokens: 64000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "top_k", "frequency_penalty", "tools",  "tool_choice"]
+      
+  - model_name: aliyun/qwen-deep-research
+    litellm_params:
+      model: openai/qwen-deep-research
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000007614
+      cache_read_input_token_cost: 0.000007614
+      output_cost_per_token: 0.000022983
+      max_tokens: 997000
+      max_input_tokens: 997000
+      max_output_tokens: 32000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "top_k", "frequency_penalty", "tools",  "tool_choice"]
+      
+  - model_name: aliyun/qwen-vl-ocr
+    litellm_params:
+      model: openai/qwen-vl-ocr-2025-11-20
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.0000000423
+      cache_read_input_token_cost: 0.0000000423
+      output_cost_per_token: 0.0000000705
+      max_tokens: 30000
+      max_input_tokens: 30000
+      max_output_tokens: 8000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "top_k", "frequency_penalty", "tools",  "tool_choice"]
+
+  - model_name: aliyun/deepseek-v3.2-exp-thinking-search
+    litellm_params:
+      model: openai/deepseek-v3.2-exp
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+      extra_body:
+        enable_thinking: true
+        thinking_budget: 64000
+        enable_search: true
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000028
+      output_cost_per_token: 0.00000042
+      cache_read_input_token_cost: 0.0000000282
+      max_tokens: 96000
+      max_input_tokens: 96000
+      max_output_tokens: 64000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params:  ["max_tokens","structured_outputs","tools"]
+      
+  - model_name: aliyun/glm-4.6
+    litellm_params:
+      model: openai/glm-4.6
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+      extra_body:
+        enable_thinking: true
+        thinking_budget: 16000
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000000423
+      cache_read_input_token_cost: 0.000000423
+      output_cost_per_token: 0.000001974
+      max_tokens: 198000
+      max_input_tokens: 166000
+      max_output_tokens: 16000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["max_tokens", "structured_outputs", "response_format", "temperature", "top_p", "tools", "tool_choice"]
+
+  - model_name: aliyun/Kimi-K2-Instruct
+    litellm_params:
+      model: openai/Moonshot-Kimi-K2-Instruct
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000000423
+      cache_read_input_token_cost: 0.000000423
+      output_cost_per_token: 0.000001974
+      max_tokens: 200000
+      max_input_tokens: 200000
+      max_output_tokens: 128000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "structured_outputs", "response_format", "temperature", "top_p", "tools", "tool_choice"]
+
+  - model_name: aliyun/kimi-k2-thinking
+    litellm_params:
+      model: openai/kimi-k2-thinking
+      api_key: os.environ/DASHSCOPE_API_KEY
+      api_base: https://dashscope.aliyuncs.com/compatible-mode/v1
+      extra_body:
+        enable_thinking: true
+        thinking_budget: 16000
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000000564
+      cache_read_input_token_cost: 0.000000564
+      output_cost_per_token: 0.000002256
+      max_tokens: 224000
+      max_input_tokens: 224000
+      max_output_tokens: 16000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["max_tokens", "structured_outputs", "response_format", "temperature", "top_p", "tools", "tool_choice"]
+
 
   # os.environ/MINIMAX_API_KEY  anthropic/
   - model_name: minimax-m2-official
@@ -1279,6 +1632,9 @@ model_list:
     litellm_params:
       model: openrouter/anthropic/claude-opus-4.1
       api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
     model_info:
       mode: chat
       input_cost_per_token: 0.000015
@@ -1296,6 +1652,9 @@ model_list:
     litellm_params:
       model: openrouter/anthropic/claude-opus-4.1:online
       api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
     model_info:
       mode: chat
       input_cost_per_token: 0.000015
@@ -1329,6 +1688,29 @@ model_list:
       supports_tool_choice: true
       supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice"]
       
+  - model_name: R/anthropic/claude-sonnet-4-high
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      cache_read_input_token_cost: 0.0000003
+      input_cost_per_token_above_200k_tokens: 0.000006
+      output_cost_per_token_above_200k_tokens: 0.0000225
+      cache_read_input_token_cost_above_200k_tokens: 0.0000006
+      max_tokens: 1000000
+      max_input_tokens: 1000000
+      max_output_tokens: 64000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice"]
+      
   - model_name: R/anthropic/claude-3.7-sonnet
     litellm_params:
       model: openrouter/anthropic/claude-3.7-sonnet
@@ -1346,6 +1728,26 @@ model_list:
       supports_tool_choice: true
       supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice"]
       
+  - model_name: R/anthropic/claude-3.7-sonnet-high
+    litellm_params:
+      model: openrouter/anthropic/claude-3.7-sonnet
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+      cache_read_input_token_cost: 0.0000003
+      max_tokens: 200000
+      max_input_tokens: 200000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "top_p", "temperature", "stop", "tools", "tool_choice"]
+
   - model_name: R/anthropic/claude-3.5-haiku
     litellm_params:
       model: openrouter/anthropic/claude-3.5-haiku
@@ -1587,24 +1989,6 @@ model_list:
       tpm: 15000
       supported_openai_params: ["max_tokens", "temperature", "top_p", "seed", "response_format", "stop", "frequency_penalty", "presence_penalty"]
    
-  - model_name: R/openai/gpt-5.1
-    litellm_params:
-      model: openrouter/openai/gpt-5.1
-      api_key: os.environ/OPENROUTER_API_KEY
-    model_info:
-      mode: chat
-      input_cost_per_token: 0.00000125
-      output_cost_per_token: 0.00001
-      cache_read_input_token_cost: 0.000000125
-      max_tokens: 400000
-      max_input_tokens: 400000
-      max_output_tokens: 128000
-      supports_vision: true
-      supports_function_calling: true
-      supports_tool_choice: true
-      supports_reasoning: true
-      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
-      
   - model_name: R/openai/gpt-5.1-chat
     litellm_params:
       model: openrouter/openai/gpt-5.1-chat
@@ -1625,6 +2009,90 @@ model_list:
     litellm_params:
       model: openrouter/openai/gpt-5.1-codex
       api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
+      
+  - model_name: R/openai/gpt-5.1-codex-high
+    litellm_params:
+      model: openrouter/openai/gpt-5.1-codex
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
+      
+  - model_name: R/openai/gpt-5.1-codex-medium
+    litellm_params:
+      model: openrouter/openai/gpt-5.1-codex
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: medium
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
+      
+  - model_name: R/openai/gpt-5.1-codex-low
+    litellm_params:
+      model: openrouter/openai/gpt-5.1-codex
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: low
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
+      
+  - model_name: R/openai/gpt-5.1-codex-minimal
+    litellm_params:
+      model: openrouter/openai/gpt-5.1-codex
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: minimal
     model_info:
       mode: chat
       input_cost_per_token: 0.00000125
@@ -1763,6 +2231,27 @@ model_list:
       supports_reasoning: true
       supported_openai_params: ["structured_outputs", "response_format", "max_tokens",  "seed", "tools", "tool_choice"]
       
+  - model_name: R/openai/gpt-5-high
+    litellm_params:
+      model: openrouter/openai/gpt-5
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens",  "seed", "tools", "tool_choice"]
+      
   - model_name: R/openai/gpt-5-chat
     litellm_params:
       model: openrouter/openai/gpt-5-chat
@@ -1785,6 +2274,27 @@ model_list:
     litellm_params:
       model: openrouter/openai/gpt-5-mini
       api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000025
+      output_cost_per_token: 0.000002
+      cache_read_input_token_cost: 0.000000025
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens",  "seed", "tools", "tool_choice"]
+      
+  - model_name: R/openai/gpt-5-mini-high
+    litellm_params:
+      model: openrouter/openai/gpt-5-mini
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
     model_info:
       mode: chat
       input_cost_per_token: 0.00000025
@@ -2140,23 +2650,6 @@ model_list:
       supports_function_calling: true
       supports_tool_choice: true
       supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed", "top_k", "tools", "tool_choice", "structured_outputs", "response_format"]
-      
-  - model_name: R/deepseek-r1:free
-    litellm_params:
-      model: openrouter/deepseek/deepseek-r1:free
-      api_key: os.environ/OPENROUTER_API_KEY
-    model_info:
-      mode: chat
-      input_cost_per_token: 0
-      output_cost_per_token: 0
-      cache_read_input_token_cost: 0
-      max_tokens: 163800
-      max_input_tokens: 163800
-      max_output_tokens: 163800
-      supports_function_calling: true
-      supports_tool_choice: true
-      supports_reasoning: true
-      supported_openai_params: ["structured_outputs", "response_format", "temperature", "top_p", "tools", "tool_choice", "frequency_penalty"]
       
   - model_name: R/tngtech/tng-r1t-chimera:free
     litellm_params:
