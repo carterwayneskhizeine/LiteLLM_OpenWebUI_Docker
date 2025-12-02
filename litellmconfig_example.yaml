@@ -11,12 +11,6 @@ litellm_settings:
   telemetry: False
 
 model_list:
-  - model_name: context7-mcp
-    litellm_params:
-      model: openai/mcp
-      api_base: https://context7.com/api/v1
-      api_key: os.environ/CONTEXT7_API_KEY
-
   - model_name: R/grok-4-1-fast:free
     litellm_params:
       model: openrouter/x-ai/grok-4.1-fast:free
