@@ -343,6 +343,39 @@ model_list:
       supports_function_calling: false
       supports_reasoning: true
       supported_openai_params:  ["max_tokens","structured_outputs"]
+
+  - model_name: D/deepseek-v3.2-speciale-official
+    litellm_params:
+      model: openai/deepseek-reasoner
+      api_key: os.environ/DEEPSEEK_API_KEY
+      api_base: https://api.deepseek.com/v3.2_speciale_expires_on_20251215
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000028
+      output_cost_per_token: 0.00000042
+      cache_read_input_token_cost: 0.0000000282
+      max_tokens: 128000
+      max_input_tokens: 128000
+      max_output_tokens: 128000
+      supports_function_calling: false
+      supports_reasoning: true
+      supported_openai_params:  ["max_tokens","structured_outputs"]
+      
+  - model_name: R/deepseek/deepseek-v3.2-speciale
+    litellm_params:
+      model: openrouter/deepseek/deepseek-v3.2-speciale
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000028
+      output_cost_per_token: 0.00000042
+      cache_read_input_token_cost: 0.0000000282
+      max_tokens: 128000
+      max_input_tokens: 128000
+      max_output_tokens: 128000
+      supports_function_calling: false
+      supports_reasoning: true
+      supported_openai_params:  ["max_tokens","structured_outputs"]
       
   - model_name: aliyun/qwen3-max-preview-thinking
     litellm_params:
