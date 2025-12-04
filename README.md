@@ -47,6 +47,10 @@ docker compose ps
 ### Stop All Services
 ```bash
 docker compose down
+
+### Restart All Services
+```bash
+docker compose down && docker compose up -d
 ```
 
 ### View Service Logs

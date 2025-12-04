@@ -47,6 +47,11 @@ docker compose ps
 docker compose down
 ```
 
+### 重启所有服务
+```bash
+docker compose down && docker compose up -d
+```
+
 ### 查看服务日志
 ```bash
 # 查看所有服务日志
