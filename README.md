@@ -146,6 +146,54 @@ If unable to access from other LAN devices, check the following:
 
 ## Configuration Instructions
 
+### Configuring Proxy on Cloud VMs with ShellCrash Installed
+
+If your cloud VM has [ShellCrash](https://github.com/juewuy/ShellCrash) installed for bypassing restrictions, you need to configure proxy in `docker-compose.yml` for the LiteLLM service to access external APIs.
+
+#### Configuration Steps
+
+1. **Get Server IP Address**:
+   ```bash
+   hostname -I | awk '{print $1}'
+   ```
+   Assuming the returned IP is `172.31.219.189`
+
+2. **Check ShellCrash Configuration**:
+   ```bash
+   cat /tmp/ShellCrash/config.yaml | grep "mixed-port"
+   ```
+   Confirm the mixed port, usually 8964
+
+3. **Modify docker-compose.yml**:
+
+   Add the following three lines to the `environment` section of the `litellm` service:
+
+   ```yaml
+   services:
+     litellm:
+       # ... other configs ...
+       environment:
+         DATABASE_URL: "postgresql://llmproxy:dbpassword9090@db:5432/litellm"
+         STORE_MODEL_IN_DB: "True"
+         LITELLM_ENABLE_PROMETHEUS: "True"
+         HTTP_PROXY: "http://172.31.219.189:8964"  # Use ShellCrash proxy
+         HTTPS_PROXY: "http://172.31.219.189:8964"  # Use ShellCrash proxy
+         NO_PROXY: "localhost,127.0.0.1,db,open-webui"  # Don't proxy local services
+         # ... other environment variables ...
+   ```
+
+4. **Restart Services**:
+   ```bash
+   docker compose down && docker compose up -d
+   ```
+
+#### Notes
+
+- Replace `172.31.219.189` with your actual server IP
+- Replace `8964` with your ShellCrash mixed port
+- `NO_PROXY` ensures local Docker network communication doesn't go through proxy
+- Services must be restarted after configuration changes
+
 ### Environment Variables
 - Loaded via `.env` file
 - Important items include API keys, database connection info, etc.

@@ -144,6 +144,54 @@ ifconfig
 
 ## 配置说明
 
+### 在安装了 ShellCrash 的云虚拟机上配置代理
+
+如果你的云虚拟机安装了 [ShellCrash](https://github.com/juewuy/ShellCrash) 用于翻墙，需要在 `docker-compose.yml` 中为 LiteLLM 服务配置代理，使其能够访问外部 API。
+
+#### 配置步骤
+
+1. **获取服务器 IP 地址**：
+   ```bash
+   hostname -I | awk '{print $1}'
+   ```
+   假设返回的 IP 地址为 `172.31.219.189`
+
+2. **检查 ShellCrash 配置**：
+   ```bash
+   cat /tmp/ShellCrash/config.yaml | grep "mixed-port"
+   ```
+   确认混合端口，通常为是自己手动设置的比如 8964
+
+3. **修改 docker-compose.yml**：
+
+   在 `litellm` 服务的 `environment` 部分添加以下三行：
+
+   ```yaml
+   services:
+     litellm:
+       # ... 其他配置 ...
+       environment:
+         DATABASE_URL: "postgresql://llmproxy:dbpassword9090@db:5432/litellm"
+         STORE_MODEL_IN_DB: "True"
+         LITELLM_ENABLE_PROMETHEUS: "True"
+         HTTP_PROXY: "http://172.31.219.189:8964"  # 使用ShellCrash代理
+         HTTPS_PROXY: "http://172.31.219.189:8964"  # 使用ShellCrash代理
+         NO_PROXY: "localhost,127.0.0.1,db,open-webui"  # 不代理本地服务
+         # ... 其他环境变量 ...
+   ```
+
+4. **重启服务**：
+   ```bash
+   docker compose down && docker compose up -d
+   ```
+
+#### 注意事项
+
+- 将 `172.31.219.189` 替换为你的实际服务器 IP
+- 将 `8964` 替换为你的 ShellCrash 混合端口
+- `NO_PROXY` 设置确保本地 Docker 网络通信不通过代理
+- 修改配置后必须重启服务才能生效
+
 ### 环境变量
 - 通过 `.env` 文件加载环境变量
 - 重要配置项包括 API 密钥、数据库连接信息等
