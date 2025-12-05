@@ -2828,7 +2828,7 @@ model_list:
   - model_name: ollama/gpt-oss:20b-cloud          
     litellm_params:
       model: ollama/gpt-oss:20b-cloud
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 128000
@@ -2840,7 +2840,7 @@ model_list:
   - model_name: ollama/gpt-oss:120b-cloud
     litellm_params:
       model: ollama/gpt-oss:120b-cloud
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 128000
@@ -2852,7 +2852,7 @@ model_list:
   - model_name: ollama/glm-4.6:cloud    
     litellm_params:
       model: ollama/glm-4.6:cloud
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 200000
@@ -2864,7 +2864,7 @@ model_list:
   - model_name: ollama/deepseek-v3.1:671b-cloud   
     litellm_params:
       model: ollama/deepseek-v3.1:671b-cloud
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 128000
@@ -2876,7 +2876,7 @@ model_list:
   - model_name: ollama/qwen3-coder:480b-cloud
     litellm_params:
       model: ollama/qwen3-coder:480b-cloud
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 256000
@@ -2887,7 +2887,7 @@ model_list:
   - model_name: ollama/qwen3-vl:235b-cloud
     litellm_params:
       model: ollama/qwen3-vl:235b-cloud
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 256000
@@ -2898,7 +2898,7 @@ model_list:
   - model_name: ollama/minimax-m2:cloud 
     litellm_params:
       model: ollama/minimax-m2:cloud 
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 204800
@@ -2909,7 +2909,7 @@ model_list:
   - model_name: ollama/gemma3:270m 
     litellm_params:
       model: ollama/gemma3:270m
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 32000
@@ -2920,7 +2920,7 @@ model_list:
   - model_name: ollama/gemma3
     litellm_params:
       model: ollama/gemma3
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 128000
@@ -2932,7 +2932,7 @@ model_list:
   - model_name: ollama/qwen3:4b
     litellm_params:
       model: ollama/qwen3:4b
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       max_tokens: 256000
@@ -2944,7 +2944,7 @@ model_list:
   - model_name: ollama/DeepSeek-OCR
     litellm_params:
       model: ollama/DeepSeek-OCR
-      api_base: http://192.168.1.111:11434
+      api_base: http://localhost:11434
     model_info:
       access_groups: ["ollama"]
       mode: chat
