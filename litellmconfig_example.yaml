@@ -11,20 +11,122 @@ litellm_settings:
   telemetry: False
 
 model_list:
-  - model_name: R/grok-4-1-fast:free
+  # - model_name: context7-mcp
+  #   litellm_params:
+  #     model: openai/mcp
+  #     api_base: https://context7.com/api/v1
+  #     api_key: os.environ/CONTEXT7_API_KEY
+      
+  - model_name: R/amazon/nova-2-lite-v1:free
     litellm_params:
-      model: openrouter/x-ai/grok-4.1-fast:free
+      model: openrouter/amazon/nova-2-lite-v1:free
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0
+      output_cost_per_token: 0
+      cache_read_input_token_cost: 0
+      max_tokens: 1000000
+      max_input_tokens: 1000000
+      max_output_tokens: 65500
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "tool_choice", "tools", "structured_outputs", "response_format"]
+
+  - model_name: R/mistralai/mistral-large-2512
+    litellm_params:
+      model: openrouter/mistralai/mistral-large-2512
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.0000005
+      output_cost_per_token: 0.0000015
+      cache_read_input_token_cost: 0.0000005
+      max_tokens: 262144
+      max_input_tokens: 262144
+      max_output_tokens: 262144
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed", "response_format", "structured_outputs", "tools", "tool_choice"]
+      
+  - model_name: R/arcee-ai/trinity-mini:free
+    litellm_params:
+      model: openrouter/arcee-ai/trinity-mini:free
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0
+      output_cost_per_token: 0
+      cache_read_input_token_cost: 0
+      max_tokens: 131000
+      max_input_tokens: 128000
+      max_output_tokens: 128000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "tool_choice", "tools", "structured_outputs", "response_format"]
+
+  - model_name: R/mistralai/ministral-14b-2512
+    litellm_params:
+      model: openrouter/mistralai/ministral-14b-2512
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.0000002
+      output_cost_per_token: 0.0000002
+      cache_read_input_token_cost: 0.0000002
+      max_tokens: 262100
+      max_input_tokens: 262100
+      max_output_tokens: 262100
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed", "response_format", "structured_outputs", "tool_choice", "tools"]
+
+  - model_name: R/mistralai/ministral-8b-2512
+    litellm_params:
+      model: openrouter/mistralai/ministral-8b-2512
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000015
+      output_cost_per_token: 0.00000015
+      cache_read_input_token_cost: 0.00000015
+      max_tokens: 262100
+      max_input_tokens: 262100
+      max_output_tokens: 262100
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed", "response_format", "structured_outputs", "tool_choice", "tools"]
+
+  - model_name: R/mistralai/ministral-3b-2512
+    litellm_params:
+      model: openrouter/mistralai/ministral-3b-2512
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.0000001
+      output_cost_per_token: 0.0000001
+      cache_read_input_token_cost: 0.0000001
+      max_tokens: 131000
+      max_input_tokens: 131000
+      max_output_tokens: 131000
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed", "response_format", "structured_outputs", "tool_choice", "tools"]
+  - model_name: R/grok-4-1-fast
+    litellm_params:
+      model: openrouter/x-ai/grok-4.1-fast
       api_key: os.environ/OPENROUTER_API_KEY
       extra_body:
         reasoning: 
           effort: high
     model_info:
       mode: chat
-      input_cost_per_token: 0
-      input_cost_per_token_above_128k_tokens: 0
-      output_cost_per_token: 0
-      output_cost_per_token_above_128k_tokens: 0
-      cache_read_input_token_cost: 0
+      input_cost_per_token: 0.0000002
+      input_cost_per_token_above_128k_tokens: 0.0000004
+      output_cost_per_token: 0.0000005
+      output_cost_per_token_above_128k_tokens: 0.000001
+      cache_read_input_token_cost: 0.00000005
       max_tokens: 2000000
       max_input_tokens: 2000000
       max_output_tokens: 30000
@@ -337,7 +439,7 @@ model_list:
       supports_function_calling: false
       supports_reasoning: true
       supported_openai_params:  ["max_tokens","structured_outputs"]
-
+      
   - model_name: D/deepseek-v3.2-speciale-official
     litellm_params:
       model: openai/deepseek-reasoner
@@ -2031,6 +2133,24 @@ model_list:
       supports_vision: true
       supports_reasoning: true
       supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs"]
+
+  - model_name: R/openai/gpt-5.1-codex-max
+    litellm_params:
+      model: openrouter/openai/gpt-5.1-codex-max
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.00000125
+      output_cost_per_token: 0.00001
+      cache_read_input_token_cost: 0.000000125
+      max_tokens: 400000
+      max_input_tokens: 400000
+      max_output_tokens: 128000
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["structured_outputs", "response_format", "max_tokens", "stop",  "seed", "frequency_penalty", "presence_penalty", "logit_bias", "logprobs", "top_logprobs", "tools", "tool_choice"]
       
   - model_name: R/openai/gpt-5.1-codex
     litellm_params:
@@ -2601,6 +2721,9 @@ model_list:
     litellm_params:
       model: openrouter/amazon/nova-premier-v1
       api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
     model_info:
       mode: chat
       input_cost_per_token: 0.0000025
@@ -2610,6 +2733,7 @@ model_list:
       max_input_tokens: 1000000
       max_output_tokens: 32000
       supports_function_calling: true
+      supports_reasoning: true
       supported_openai_params: ["max_tokens", "temperature", "top_p", "top_k", "stop", "tools"]
       
   - model_name: R/ibm-granite/granite-4.0-h-micro
@@ -2825,130 +2949,157 @@ model_list:
       supports_tool_choice: true
       supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed"]
 
-  - model_name: ollama/gpt-oss:20b-cloud          
-    litellm_params:
-      model: ollama/gpt-oss:20b-cloud
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 128000
-      max_input_tokens: 128000
-      max_output_tokens: 128000
-      supports_reasoning: true
-      supports_function_calling: true
+  # Ollama Cloud Models
 
-  - model_name: ollama/gpt-oss:120b-cloud
-    litellm_params:
-      model: ollama/gpt-oss:120b-cloud
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 128000
-      max_input_tokens: 128000
-      max_output_tokens: 128000
-      supports_reasoning: true
-      supports_function_calling: true
+  # - model_name: ollama/gpt-oss:20b-cloud          
+  #   litellm_params:
+  #     model: ollama/gpt-oss:20b-cloud
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 128000
+  #     max_input_tokens: 128000
+  #     max_output_tokens: 128000
+  #     supports_reasoning: true
+  #     supports_function_calling: true
+
+  # - model_name: ollama/gpt-oss:120b-cloud
+  #   litellm_params:
+  #     model: ollama/gpt-oss:120b-cloud
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 128000
+  #     max_input_tokens: 128000
+  #     max_output_tokens: 128000
+  #     supports_reasoning: true
+  #     supports_function_calling: true
       
-  - model_name: ollama/glm-4.6:cloud    
-    litellm_params:
-      model: ollama/glm-4.6:cloud
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 200000
-      max_input_tokens: 200000
-      max_output_tokens: 128000
-      supports_reasoning: true
-      supports_function_calling: true
+  # - model_name: ollama/glm-4.6:cloud    
+  #   litellm_params:
+  #     model: ollama/glm-4.6:cloud
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 200000
+  #     max_input_tokens: 200000
+  #     max_output_tokens: 128000
+  #     supports_reasoning: true
+  #     supports_function_calling: true
       
-  - model_name: ollama/deepseek-v3.1:671b-cloud   
-    litellm_params:
-      model: ollama/deepseek-v3.1:671b-cloud
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 128000
-      max_input_tokens: 128000
-      max_output_tokens: 128000
-      supports_reasoning: true
-      supports_function_calling: true
+  # - model_name: ollama/deepseek-v3.1:671b-cloud   
+  #   litellm_params:
+  #     model: ollama/deepseek-v3.1:671b-cloud
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 128000
+  #     max_input_tokens: 128000
+  #     max_output_tokens: 128000
+  #     supports_reasoning: true
+  #     supports_function_calling: true
       
-  - model_name: ollama/qwen3-coder:480b-cloud
-    litellm_params:
-      model: ollama/qwen3-coder:480b-cloud
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 256000
-      max_input_tokens: 256000
-      max_output_tokens: 256000
-      supports_function_calling: true
+  # - model_name: ollama/qwen3-coder:480b-cloud
+  #   litellm_params:
+  #     model: ollama/qwen3-coder:480b-cloud
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 256000
+  #     max_input_tokens: 256000
+  #     max_output_tokens: 256000
+  #     supports_function_calling: true
       
-  - model_name: ollama/qwen3-vl:235b-cloud
-    litellm_params:
-      model: ollama/qwen3-vl:235b-cloud
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 256000
-      max_input_tokens: 256000
-      max_output_tokens: 256000
-      supports_vision: true
+  # - model_name: ollama/qwen3-vl:235b-cloud
+  #   litellm_params:
+  #     model: ollama/qwen3-vl:235b-cloud
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 256000
+  #     max_input_tokens: 256000
+  #     max_output_tokens: 256000
+  #     supports_vision: true
       
-  - model_name: ollama/minimax-m2:cloud 
-    litellm_params:
-      model: ollama/minimax-m2:cloud 
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 204800
-      max_input_tokens: 204800
-      max_output_tokens: 131100
-      supports_function_calling: true
+  # - model_name: ollama/minimax-m2:cloud 
+  #   litellm_params:
+  #     model: ollama/minimax-m2:cloud 
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 204800
+  #     max_input_tokens: 204800
+  #     max_output_tokens: 131100
+  #     supports_function_calling: true
       
-  - model_name: ollama/gemma3:270m 
-    litellm_params:
-      model: ollama/gemma3:270m
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 32000
-      max_input_tokens: 32000
-      max_output_tokens: 32000
-      supports_function_calling: true
+  # - model_name: ollama/ministral-3:14b-cloud
+  #   litellm_params:
+  #     model: ollama/ministral-3:14b-cloud
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 256000
+  #     max_input_tokens: 256000
+  #     max_output_tokens: 256000
+  #     supports_function_calling: true
+  #     supports_vision: true
       
-  - model_name: ollama/gemma3
-    litellm_params:
-      model: ollama/gemma3
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 128000
-      max_input_tokens: 128000
-      max_output_tokens: 128000
-      supports_function_calling: true
-      supports_vision: true
+  # - model_name: ollama/gemini-3-pro-preview:latest 
+  #   litellm_params:
+  #     model: ollama/gemini-3-pro-preview:latest 
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 1050000
+  #     max_input_tokens: 1050000
+  #     max_output_tokens: 65500
+  #     supports_function_calling: true
+  #     supports_reasoning: true
+  #     supports_vision: true
       
-  - model_name: ollama/qwen3:4b
-    litellm_params:
-      model: ollama/qwen3:4b
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      max_tokens: 256000
-      max_input_tokens: 256000
-      max_output_tokens: 128000
-      supports_function_calling: true
-      supports_reasoning: true
+  # - model_name: ollama/kimi-k2:1t-cloud
+  #   litellm_params:
+  #     model: ollama/kimi-k2:1t-cloud
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 200000
+  #     max_input_tokens: 200000
+  #     max_output_tokens: 128000
+  #     supports_function_calling: true
       
-  - model_name: ollama/DeepSeek-OCR
-    litellm_params:
-      model: ollama/DeepSeek-OCR
-      api_base: http://192.168.1.111:11434
-    model_info:
-      access_groups: ["ollama"]
-      mode: chat
-      max_tokens: 128000
-      max_input_tokens: 8000
-      max_output_tokens: 128000
-      supports_vision: true
+  # - model_name: ollama/kimi-k2-thinking:cloud 
+  #   litellm_params:
+  #     model: ollama/kimi-k2-thinking:cloud 
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 256000
+  #     max_input_tokens: 256000
+  #     max_output_tokens: 256000
+  #     supports_function_calling: true
+  #     supports_reasoning: true
+      
+  # - model_name: ollama/cogito-2.1:671b-cloud 
+  #   litellm_params:
+  #     model: ollama/cogito-2.1:671b-cloud 
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 160000
+  #     max_input_tokens: 160000
+  #     max_output_tokens: 160000
+  #     supports_function_calling: true
+  #     supports_reasoning: true
+      
+  # - model_name: ollama/mistral-large-3:675b-cloud 
+  #   litellm_params:
+  #     model: ollama/mistral-large-3:675b-cloud 
+  #     api_base: http://localhost:11434
+  #   model_info:
+  #     access_groups: ["ollama"]
+  #     max_tokens: 256000
+  #     max_input_tokens: 256000
+  #     max_output_tokens: 256000
+  #     supports_function_calling: true
+  #     supports_vision: true
