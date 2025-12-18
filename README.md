@@ -236,7 +236,7 @@ services:
 
 ```bash
 # Pull the latest image
-docker compose pull litellm
+docker compose pull
 
 # Restart services to use new version
 docker compose up -d

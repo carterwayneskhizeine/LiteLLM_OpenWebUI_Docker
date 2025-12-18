@@ -16,7 +16,108 @@ model_list:
       # model: openai/mcp
       # api_base: https://context7.com/api/v1
       # api_key: os.environ/CONTEXT7_API_KEY
+
+  - model_name: R/google/gemini-3-flash-high
+    litellm_params:
+      model: openrouter/google/gemini-3-flash-preview
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: high
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000012
+      cache_read_input_token_cost: 0.0000002
+      max_tokens: 1050000
+      max_input_tokens: 1050000
+      max_output_tokens: 65500
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "seed", "response_format", "stop", "structured_outputs", "tool_choice", "tools"]
       
+  - model_name: R/google/gemini-3-flash-medium
+    litellm_params:
+      model: openrouter/google/gemini-3-flash-preview
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: medium
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000012
+      cache_read_input_token_cost: 0.0000002
+      max_tokens: 1050000
+      max_input_tokens: 1050000
+      max_output_tokens: 65500
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "seed", "response_format", "stop", "structured_outputs", "tool_choice", "tools"]
+      
+  - model_name: R/google/gemini-3-flash-low
+    litellm_params:
+      model: openrouter/google/gemini-3-flash-preview
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: low
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000012
+      cache_read_input_token_cost: 0.0000002
+      max_tokens: 1050000
+      max_input_tokens: 1050000
+      max_output_tokens: 65500
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "seed", "response_format", "stop", "structured_outputs", "tool_choice", "tools"]
+      
+  - model_name: R/google/gemini-3-flash-minimal
+    litellm_params:
+      model: openrouter/google/gemini-3-flash-preview
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        reasoning: 
+          effort: minimal
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000012
+      cache_read_input_token_cost: 0.0000002
+      max_tokens: 1050000
+      max_input_tokens: 1050000
+      max_output_tokens: 65500
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supports_reasoning: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "seed", "response_format", "stop", "structured_outputs", "tool_choice", "tools"]
+      
+  - model_name: R/google/gemini-3-flash-preview
+    litellm_params:
+      model: openrouter/google/gemini-3-flash-preview
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: chat
+      input_cost_per_token: 0.000002
+      output_cost_per_token: 0.000012
+      cache_read_input_token_cost: 0.0000002
+      max_tokens: 1050000
+      max_input_tokens: 1050000
+      max_output_tokens: 65500
+      supports_vision: true
+      supports_function_calling: true
+      supports_tool_choice: true
+      supported_openai_params: ["max_tokens", "temperature", "top_p", "seed", "response_format", "stop", "structured_outputs", "tool_choice", "tools"]
+
   - model_name: R/xiaomi/mimo-v2-flash:free
     litellm_params:
       model: openrouter/xiaomi/mimo-v2-flash:free

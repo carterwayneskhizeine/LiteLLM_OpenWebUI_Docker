@@ -235,7 +235,7 @@ services:
 
 ```bash
 # 拉取最新的镜像
-docker compose pull litellm
+docker compose pull
 
 # 重启服务以使用新版本
 docker compose up -d
