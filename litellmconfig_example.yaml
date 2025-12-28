@@ -419,6 +419,7 @@ model_list:
       supports_function_calling: true
       supports_tool_choice: true
       supported_openai_params: ["max_tokens", "temperature", "top_p", "stop", "frequency_penalty", "presence_penalty", "seed", "response_format", "structured_outputs", "tool_choice", "tools"]
+
   - model_name: R/grok-4-1-fast
     litellm_params:
       model: openrouter/x-ai/grok-4.1-fast
