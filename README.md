@@ -24,7 +24,7 @@ This project uses Docker Compose to deploy a complete LLM proxy service stack, i
   - Password: dbpassword9090
 
 ### Open WebUI Interface
-- **Port**: 3000
+- **Port**: 9036
 - **Function**: Provides a user-friendly web interface integrated with LiteLLM proxy
 - **Auto Connection**: Automatically connects to LiteLLM via Docker internal network (http://litellm:4000/v1)
 - **Data Persistence**: Uses `open-webui` volume to persist user data
@@ -67,7 +67,7 @@ docker compose logs open-webui
 
 ### Local Access
 - **LiteLLM Dashboard**: http://localhost:4000/ui/
-- **Open WebUI**: http://localhost:3000/
+- **Open WebUI**: http://localhost:9036/
 
 ### LAN Access
 
@@ -94,12 +94,12 @@ ifconfig
 Assuming the server IP is `192.168.1.111`, the LAN access addresses are:
 
 - **LiteLLM Dashboard**: http://192.168.1.111:4000/ui/
-- **Open WebUI**: http://192.168.1.111:3000/
+- **Open WebUI**: http://192.168.1.111:9036/
 
 #### Port Explanation
 
 According to [`docker-compose.yml`](docker-compose.yml) configuration:
-- **3000 port**: Open WebUI service (container internal 8080 port mapped to host 3000 port)
+- **9036 port**: Open WebUI service (container internal 8080 port mapped to host 9036 port)
 - **4000 port**: LiteLLM service
 
 #### Troubleshooting
@@ -107,15 +107,15 @@ According to [`docker-compose.yml`](docker-compose.yml) configuration:
 If unable to access from other LAN devices, check the following:
 
 1. **Firewall Settings**:
-   - **Windows**: Create inbound rules in Windows Firewall to allow ports 3000, 4000
+   - **Windows**: Create inbound rules in Windows Firewall to allow ports 9036, 4000
      - Open Windows Firewall Advanced Settings
      - Select "Inbound Rules" > "New Rule"
      - Select "Port", click "Next"
-     - Select "TCP", enter specific ports: 3000,4000
+     - Select "TCP", enter specific ports: 9036,4000
      - Select "Allow the connection", click "Next"
      - Select applicable network types (usually all checked), click "Next"
      - Enter rule name (e.g., "LiteLLM Service"), complete creation
-   - **Linux**: Use `ufw allow 3000`, `ufw allow 4000` (inbound rules by default)
+   - **Linux**: Use `ufw allow 9036`, `ufw allow 4000` (inbound rules by default)
    - **macOS**: Configure inbound connections in System Preferences > Security & Privacy > Firewall
 
 2. **Docker Service Status**:
@@ -131,7 +131,7 @@ If unable to access from other LAN devices, check the following:
 4. **Network Connectivity Test**:
    ```bash
    # Test on server
-   curl http://192.168.1.111:3000
+   curl http://192.168.1.111:9036
    
    # Test on other devices
    ping 192.168.1.111

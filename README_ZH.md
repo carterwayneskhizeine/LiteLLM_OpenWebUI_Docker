@@ -22,7 +22,7 @@
   - 密码: dbpassword9090
 
 ### Open WebUI 界面
-- **端口**: 3000
+- **端口**: 9036
 - **功能**: 提供用户友好的 Web 界面，与 LiteLLM 代理集成
 - **自动连接**: 通过 Docker 内部网络自动连接到 LiteLLM (http://litellm:4000/v1)
 - **数据持久化**: 使用 `open-webui` 卷保存用户数据
@@ -66,7 +66,7 @@ docker compose logs open-webui
 
 ### 本地访问
 - **LiteLLM Dashboard**: http://localhost:4000/ui/
-- **Open WebUI**: http://localhost:3000/
+- **Open WebUI**: http://localhost:9036/
 
 ### 局域网访问
 
@@ -93,12 +93,12 @@ ifconfig
 假设服务器 IP 地址为 `192.168.1.111`，则局域网访问地址为：
 
 - **LiteLLM Dashboard**: http://192.168.1.111:4000/ui/
-- **Open WebUI**: http://192.168.1.111:3000/
+- **Open WebUI**: http://192.168.1.111:9036/
 
 #### 端口说明
 
 根据 [`docker-compose.yml`](docker-compose.yml) 配置：
-- **3000 端口**：Open WebUI 服务（容器内部 8080 端口映射到主机 3000 端口）
+- **9036 端口**：Open WebUI 服务（容器内部 8080 端口映射到主机 9036 端口）
 - **4000 端口**：LiteLLM 服务
 
 #### 故障排除
@@ -106,15 +106,15 @@ ifconfig
 如果无法从局域网其他设备访问，请检查以下项目：
 
 1. **防火墙设置**：
-   - **Windows**：在 Windows 防火墙中创建**入站规则**，允许端口 3000、4000
+   - **Windows**：在 Windows 防火墙中创建**入站规则**，允许端口 9036、4000
      - 打开 Windows 防火墙高级设置
      - 选择"入站规则" > "新建规则"
      - 选择"端口"，点击"下一步"
-     - 选择"TCP"，输入特定端口：3000,4000
+     - 选择"TCP"，输入特定端口：9036,4000
      - 选择"允许连接"，点击"下一步"
      - 选择适用的网络类型（通常全部选中），点击"下一步"
      - 输入规则名称（如"LiteLLM 服务"），完成创建
-   - **Linux**：使用 `ufw allow 3000`、`ufw allow 4000`（默认为入站规则）
+   - **Linux**：使用 `ufw allow 9036`、`ufw allow 4000`（默认为入站规则）
    - **macOS**：在系统偏好设置 > 安全性与隐私 > 防火墙中配置**入站连接**
 
 2. **Docker 服务状态**：
@@ -130,7 +130,7 @@ ifconfig
 4. **网络连通性测试**：
    ```bash
    # 在服务器上测试
-   curl http://192.168.1.111:3000
+   curl http://192.168.1.111:9036
    
    # 在其他设备上测试
    ping 192.168.1.111

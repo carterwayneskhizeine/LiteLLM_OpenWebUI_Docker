@@ -83,7 +83,7 @@ docker run --rm -v open-webui:/data -v %CD%\backup:/backup alpine tar xzf /backu
 确保端口未被占用：
 - 4000 (LiteLLM)
 - 5432 (Postgres)
-- 3000 (Open WebUI)
+- 9036 (Open WebUI)
 
 如果冲突，编辑 `docker-compose.yml` 中的 `ports` 修改主机端口。
 
@@ -102,7 +102,7 @@ docker-compose logs db  # 查看 Postgres 日志
 
 - 访问：
   - LiteLLM: http://localhost:4000
-  - Open WebUI: http://localhost:3000
+  - Open WebUI: http://localhost:9036
   - Postgres: localhost:5432 (用工具如 pgAdmin 连接测试)
 
 ## 步骤 4: 常见问题排查
